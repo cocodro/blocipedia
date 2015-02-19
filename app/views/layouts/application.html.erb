@@ -14,12 +14,12 @@
 
           <div class="pull-right user-info">
             <% if current_user %>
-              Hello <%= current_user.name || current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+              Hello <%= current_user.name || current_user.email %>! &nbsp; 
               <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
-                <span class:"glyphicon glyphicon-user"></span>
+                <%= fa_icon "user" %>
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
-                <span class:"glyphicon glyphicon-log-out"></span>
+                <%= fa_icon "sign-out" %>
               <% end %>
             <% else %>
               <%= link_to "Sign In", new_user_session_path %> or
