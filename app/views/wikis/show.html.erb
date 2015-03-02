@@ -1,5 +1,13 @@
-<h1><%= @wiki.title %></h1>
-<p><%= @wiki.body %></p>
 <div class="row">
-  <%= link_to "Edit Wiki", edit_wiki_path(@wiki), class: 'btn btn-success' %>
-  <%= link_to "Delete Wiki", @wiki, method: :delete, remote: true, class: 'btn btn-danger', data:{confirm: "Are you sure? The wiki will be permanently deleted."} %>
+  <div class="col-md-8"><h1><%= @wiki.title %></h1></div>
+  <div class="col-md-4">
+    <h1><ul class="nav nav-pills">
+      <%= link_to "Edit Wiki", edit_wiki_path(@wiki), class: 'btn btn-success' %>
+      <%= link_to "Delete Wiki", @wiki, method: :delete, remote: true, class: 'btn btn-danger', data:{confirm: "Are you sure? The wiki will be permanently deleted."} %>
+    </ul></h1>
+  </div>
+</div>
+</br>
+<div class="media-body">
+  <p><%= @wiki.body %></p>
+</div>
