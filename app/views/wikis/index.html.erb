@@ -1,12 +1,14 @@
 <div class="row">
   <% if @wikis.nil? %>
     <div class="media">
-      <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-primary' %>
+      <% if policy(Wiki.new).create? %>
+        <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-primary' %>
+      <% end %>
     </div>
   <% else %>
     <div class="row-fluid">
       <h3>Wikis</h3>
-      <%= @wikis.each do |wiki| %>
+      <% @wikis.each do |wiki| %>
         <div class="media">
           <%= link_to wiki.title, wiki %>
         </div>
@@ -14,7 +16,9 @@
     </div>
     </br>
     <div class="media">
-      <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-primary' %>
+      <% if policy(Wiki.new).create? %>
+        <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-primary' %>
+      <% end %>
     </div>
   <% end %>
 </div>

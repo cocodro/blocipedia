@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
   resources :users, only: [:update]
-  resources :wikis
+
+  resources :wikis do
+    resources :sections
+  end
 
   get 'about' => 'welcome#about'
 
