@@ -20,7 +20,7 @@ end
 sections = Section.all
 
 # Create My User
-me = User.create!(
+me = User.new(
   name: "Cole",
   email: "combswc@gmail.com",
   password: "password",
@@ -30,7 +30,7 @@ me.skip_confirmation!
 me.save!
 
 # Create My User
-premium_user = User.create!(
+premium_user = User.new(
   name: "Captain Hook",
   email: "chook@gmail.com",
   password: "password",
@@ -41,7 +41,7 @@ premium_user.save!
 
 # Create Other Users
 3.times do
-  user = User.create!(
+  user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: "password"
