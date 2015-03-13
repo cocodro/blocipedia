@@ -4,12 +4,18 @@
     <%= form_for @wiki do |f| %>
       <div class="form-group">
         <%= f.label :title %><br />
-        <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: "Enter Wiki Name" %>
+        <%= f.text_field :title, autofocus: true, class: 'form-control', maxlength:30, placeholder: "Enter Wiki Name" %>
       </div>
       <div class="form-group">
         <%= f.label :body %><br />
-        <%= f.text_area :body, class: 'form-control', placeholder: "Add information to your wiki" %>
+        <%= f.text_area :body, class: 'form-control', placeholder: "Add a synopsis of your wiki" %>
       </div>
+      <% if current_user.admin? || current_user.premium?%>
+        <div class="form-group">
+          <%= f.label :private, class: 'checkbox' %>
+          <%= f.check_box :private %> Private wiki?
+        </div>
+      <% end %>
       <div class="form-group">
         <%= f.submit "Save Wiki", class: 'btn btn-success' %>
       </div>

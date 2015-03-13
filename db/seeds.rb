@@ -39,6 +39,16 @@ premium_user = User.new(
 premium_user.skip_confirmation!
 premium_user.save!
 
+# Create My User
+standard_user = User.new(
+  name: "Captain Beefheart",
+  email: "beef@heart.gov",
+  password: "password"
+)
+standard_user.skip_confirmation!
+standard_user.save!
+
+
 # Create Other Users
 3.times do
   user = User.new(
