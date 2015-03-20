@@ -5,7 +5,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    record.public? || user.premium? || user.admin?
+    record.public? || (user.premium? && user = record.user) || user.admin?
   end
 
   class Scope
