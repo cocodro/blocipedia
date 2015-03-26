@@ -22,9 +22,9 @@
               <%= fa_icon "sign-out" %>
             <% end %>
             <% if current_user.role == "standard" %>
-              <%= link_to "Upgrade", new_charge_path, class: 'btn btn-primary btn-sm' %>
-                <%# fa_icon "level-up" %>
-              <%# end %>
+              <%= link_to new_charge_path, class: 'btn btn-primary btn-sm' do %>
+                Upgrade &nbsp;<%= fa_icon "level-up" %>
+              <% end %>
             <% end %>
           <% else %>
             <%= link_to "Sign In", new_user_session_path %> or

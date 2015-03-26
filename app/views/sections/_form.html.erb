@@ -9,6 +9,8 @@
   </div>
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>
-    <%= link_to "Delete", [@wiki, section], method: :delete, class: 'btn btn-danger', data:{confirm: "Are you sure? The section will be permanently deleted."} %>
+    <% unless section.new_record? %>
+      <%= link_to "Delete", [@wiki, section], method: :delete, class: 'btn btn-danger', data:{confirm: "Are you sure? The section will be permanently deleted."} %>
+    <% end %>
   </div>
 <% end %>

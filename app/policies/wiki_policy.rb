@@ -5,22 +5,25 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    record.public? || (user.premium? && user = record.user) || user.admin?
+    record.public? || user.premium? || user.admin?
   end
 
   class Scope
+
     attr_reader :user, :scope
-    def initialize(user,scope)
+
+    def initialize(user, scope)
       @user = user
       @scope = scope
     end
+
     def resolve
       if user.admin?
         scope.all
       elsif user.premium?
-        scope.where(private: false, user: user)
+        scope.eager_load(:collaborators).where("wikis.private = ? OR wikis.user_id = ? OR collaborators.user_id = ?", false, user.id, user.id)
       else
-        scope.where(private: false)
+        scope.eager_load(:collaborators).where("wikis.private = ? OR collaborators.user_id = ?", false, user.id)
       end
     end
   end
