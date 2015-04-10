@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container">
+    <div class="navigation bar">
       <ul class="nav nav-tabs">
         <li><%= link_to "Blocipedia", root_path, class: 'btn btn-lg' %></li>
         <li><%= link_to "About", about_path, class: 'btn btn-lg' %></li>
@@ -51,7 +51,7 @@
         </div>
       <% end %>
     </div>
-    <div class="container">
+    <div class="container content">
         <%= yield %>
     </div>
   </body>

@@ -3,13 +3,15 @@ class CollaboratorsController < ApplicationController
     @wiki = Wiki.find(params[:wiki_id])
     @user = User.find_by(email: params[:email] )
     @collaborator = Collaborator.new
+    authorize @collaborator
   end
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
     @user = User.find_by(email: params[:email])
-    @collaborator = Collaborator.new(wiki: @wiki, user: @user)
     name = @user.name
+    @collaborator = Collaborator.new(wiki: @wiki, user: @user)
+    authorize @collaborator
 
     if @collaborator.save
       flash[:notice] = "Congrats, you've added #{name} as a collaborator!"
@@ -25,6 +27,7 @@ class CollaboratorsController < ApplicationController
     @wiki = Wiki.find(params[:wiki_id])
     @collaborator = Collaborator.find(params[:id])
     name = @collaborator.user.name
+    authorize @collaborator
 
     if @collaborator.destroy
       flash[:notice] = "You've removed #{name} as a collaborator!"

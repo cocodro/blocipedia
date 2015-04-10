@@ -1,25 +1,17 @@
-<div class="row">
-  <ul class="nav nav-pills">
-    <% if policy(@wiki).edit? %>
-      <%= link_to "Add Section", new_wiki_section_path(@wiki, @section), class: 'btn btn-sm btn-primary'%>
-      <%= link_to "Edit Wiki", edit_wiki_path(@wiki), class: 'btn btn-sm btn-primary' %>
-    <% end %>
-    <% if policy(@wiki).destroy? %>
-      <%= link_to "Delete Wiki", @wiki, method: :delete, remote: true, class: 'btn btn-sm btn-danger', data:{confirm: "Are you sure? The wiki will be permanently deleted."} %>
-    <% end %>
-  </ul>
+<div class="wiki-btns">
+  <% if policy(@wiki).edit? %>
+    <%= link_to "Add Section", new_wiki_section_path(@wiki, @section), class: 'btn btn-md btn-primary'%>
+    <%= link_to "Edit Wiki", edit_wiki_path(@wiki), class: 'btn btn-md btn-primary' %>
+  <% end %>
+  <% if policy(@wiki).destroy? %>
+    <%= link_to "Delete Wiki", @wiki, method: :delete, remote: true, class: 'btn btn-md btn-danger', data:{confirm: "Are you sure? The wiki will be permanently deleted."} %>
+  <% end %>
 </div>
-<div class="row">
-  <div class="col-md-8">
-    <h1><%= markdown_to_html @wiki.title %></h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3><em><%= markdown_to_html @wiki.body %></em></h3>
-  </div>
-</div>
+<div class="wiki-page">
+  <h1><%= markdown_to_html @wiki.title %></h1>
+  <h3><em><%= markdown_to_html @wiki.body %></em></h3>
 </br>
-<div class="row">
-  <%= render partial: 'sections/section', collection: @sections %>
+  <div class="section-page">
+    <%= render partial: 'sections/section', collection: @sections %>
+  </div>
 </div>

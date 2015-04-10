@@ -9,6 +9,7 @@ class SectionsController < ApplicationController
     @wiki = Wiki.find(params[:wiki_id])
     @section = Section.new(section_params)
     @section.wiki = @wiki
+
     if @section.save
       redirect_to @wiki
     else
@@ -21,11 +22,12 @@ class SectionsController < ApplicationController
     @wiki = Wiki.find(params[:wiki_id])
     @section = Section.find(params[:id])
     @section.wiki = @wiki
+
     if @section.update_attributes(section_params)
-      flash[:notice] = "\"#{title}\" was successfully saved!"
+      flash[:notice] = "\"#{@section.title}\" was successfully saved!"
       redirect_to @wiki
     else
-      flash[:error] = "\"#{title}\" was not properly saved!"
+      flash[:error] = "\"#{@section.title}\" was not properly saved!"
       redirect_to :back
     end
   end
@@ -35,6 +37,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     @section.wiki = @wiki
     title = @section.title
+
     if @section.destroy
       flash[:notice] = "The section entitled \"#{title}\" was deleted!"
       redirect_to request.referer

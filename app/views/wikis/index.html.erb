@@ -1,24 +1,22 @@
-<div class="row">
-  <% if @wikis.nil? %>
-    <div class="media">
-      <% if policy(Wiki.new).create? %>
-        <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-primary' %>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="row-fluid">
-      <h3>Wikis</h3>
-      <% @wikis.each do |wiki| %>
-        <div class="media">
-          <%= link_to wiki.title, wiki %>
-        </div>
-      <% end %>
-    </div>
-    </br>
-    <div class="media">
-      <% if policy(Wiki.new).create? %>
-        <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-primary' %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<% if @wikis.nil? %>
+  <div class="wiki-btns">
+    <% if policy(Wiki.new).create? %>
+      <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-md btn-primary' %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="wiki-btns">
+    <% if policy(Wiki.new).create? %>
+      <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-md btn-primary' %>
+    <% end %>
+  </div>
+  <div class="wiki-page">
+    <h1>Wikis</h1>
+  </br>
+    <% @wikis.each do |wiki| %>
+      <div class="wiki-titles">
+        <%= link_to wiki.title, wiki %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

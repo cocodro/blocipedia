@@ -1,7 +1,5 @@
 class ChargesController < ApplicationController
   def create
-
-
     # Creates a stripe Customer object, for associating with the charge
     customer = Stripe::Customer.create(
     email: current_user.email,

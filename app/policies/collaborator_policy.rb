@@ -1,5 +1,16 @@
-class CollaboratorPolicy < AppliccationPolicy
+class CollaboratorPolicy < ApplicationPolicy
+  attr_reader :wiki
+
+  def initialize(user, record, wiki)
+    @wiki = wiki
+    super(user,record)
+  end
+
   def create?
-    user.role == 'premium' && wiki.user == user
+    (user.premium? || user.admin?) && user == wiki.user
+  end
+
+  def destroy?
+    create?
   end
 end

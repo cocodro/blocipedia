@@ -1,19 +1,107 @@
 @import "bootstrap";
 @import "font-awesome";
+
+$font-family-sans-serif: Arial, Helvetica, Arial, sans-serif;
+
+body{
+  background: #a3ffe0;
+}
+
+div{
+  background: #ffffff;
+}
+
+.welcome-ul{
+  list-style-type: none;
+}
+
+.welcome-li{
+  margin-bottom: 2px;
+}
+.section-save{
+  margin-top: -20px;
+  margin-right: 15px;
+  float: right;
+
+}
+
+.wiki-btns{
+  margin-top: 10px;
+  margin-right: 15px;
+  float: right;
+}
+.wiki-page{
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+.section-page{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.wiki-titles{
+  font-size: 130%;
+  padding: .2%;
+}
+
+.bar{
+  background: #a3ffe0;
+}
+
+.nav-tabs{
+  background: #ffffff;
+  border-radius: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.new-btn{
+  margin-left: 15px;
+  margin-bottom: 10px;
+  margin-top: -2px;
+}
+
 .user-info{
-  margin-top:9px;
+  margin-top: 9px;
+  background: #ffffff;
+  margin-right: 20px;
 }
 
 .nav{
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
+
 .nav-pills{
   float:right;
   margin-right: 9px;
 }
+
+.section{
+  text-color: #ffffff;
+}
+
 .section-body{
   font-size: 22px;
 }
+
 .section-title{
   font-size: 33px;
+}
+
+.content {
+  border-color: #a3ffe0;
+  border-radius: 7px;
+}
+
+.row {
+  border-top: 3px solid;
+  border-color: #a3ffe0;
+  border-radius: 7px;
+}
+
+div.welcome {
+  text-color: #428bca;
 }
