@@ -32,6 +32,11 @@ class SectionsController < ApplicationController
     end
   end
 
+  def edit
+    @section = Section.find(params[:id])
+    @section.wiki = @wiki
+  end
+
   def destroy
     @wiki = Wiki.find(params[:wiki_id])
     @section = Section.find(params[:id])
