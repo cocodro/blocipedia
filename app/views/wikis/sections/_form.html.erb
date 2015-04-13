@@ -1,4 +1,4 @@
-<%= form_for [@section] do |f| %>
+<%= form_for [@wiki, @section] do |f| %>
   <div class="form-group">
     <%= f.label :title %><br />
     <%= f.text_field :title, autofocus: true, class: 'form-control', maxlength: 25, placeholder: "Enter Section Name" %>

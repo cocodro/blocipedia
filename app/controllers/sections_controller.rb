@@ -25,7 +25,7 @@ class SectionsController < ApplicationController
 
     if @section.update_attributes(section_params)
       flash[:notice] = "\"#{@section.title}\" was successfully saved!"
-      redirect_to @wiki
+      redirect_to edit_wiki_path(@wiki)
     else
       flash[:error] = "\"#{@section.title}\" was not properly saved!"
       redirect_to :back
@@ -34,7 +34,7 @@ class SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
-    @section.wiki = @wiki
+    @wiki = @section.wiki
   end
 
   def destroy
