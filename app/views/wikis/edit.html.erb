@@ -21,8 +21,16 @@
   <% end %>
   <h1>Edit Sections</h1>
   <% @sections.each do |section| %>
-    <%= render partial: 'sections/form', locals: {section: section} %>
+    <p class="section-title">
+      <h4>
+        <%= markdown_to_html section.title %>
+        <%= link_to "Edit", edit_section_path(section) %>
+      </h4>
+    </p>
+
+    <%# render partial: 'sections/form', locals: {section: section} %>
   <% end %>
+
 </div>
 <div class='col-md-4'>
   <h1>Collaborators</h1>

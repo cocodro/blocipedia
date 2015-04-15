@@ -1,9 +1,27 @@
 <div class="wiki-page">
-  <h1>Blocipedia - An Introduction</h1>
-  <h4><p>So you somehow stumbled across Blocipedia - Wikipedia's favorite and less boring step-child!
-    Were like that place everyone says you should check out but are too nervous to try.  We're the sriracha to your
-    hot sauce.  Like choosing skydiving over paragliding.  It's not for everyone, but once you try it, you'll
-    be party of an exclusive, fanatical club!<p>
-    <p>Basic membership is free after <%= link_to "sign up", new_user_registration_path %>, however, anyone can visit
-    and see all the public wikis we host.<p></h4>
+  <div>
+    <h1>Blocipedia - An Introduction</h1>
+    <h4><p>So you somehow stumbled across Blocipedia - Wikipedia's favorite and less boring step-child!
+      We're like that place everyone says you should check out but are too nervous to try.  We're the sriracha to your
+      hot sauce or like choosing skydiving over paragliding.  It's not for everyone, but once you try it, you'll
+      be part of an exclusive, fanatical club!<p>
+      <p>Standard membership is free after sign up, however, anyone can visit
+      and see all the public wikis we host.  Visitors and standard users can both create wikis, but only registered users can edit wikis. If you are looking for a more exclusive membership, try our premium membership at
+      just $15.  As a premium member, you can create private wikis and share them with only people you personally invite.  As always,
+      you will still have access to the public wikis! <p>
+      <p>Ready to get started? Just select an option below to create a new public wiki or to join the Blocipedia community!</h4>
+  </div>
+  <div class="about-btns">
+    <% if policy(Wiki.new).create? %>
+      <%= link_to "Create New Wiki", new_wiki_path, class:'btn btn-md btn-primary' %>
+    <% end %>
+    <% if !current_user %>
+    &nbsp;
+    <strong>or</strong>
+    &nbsp;
+      <% if policy(Wiki.new).create? %>
+        <%= link_to "Sign Up", new_user_registration_path, class:'btn btn-md btn-primary' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

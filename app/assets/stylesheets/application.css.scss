@@ -1,7 +1,9 @@
+$font-family-base: Helvetica, serif;
+// Add global variables here
+
 @import "bootstrap";
 @import "font-awesome";
 
-$font-family-sans-serif: Arial, Helvetica, Arial, sans-serif;
 
 body{
   background: #a3ffe0;
@@ -11,6 +13,10 @@ div{
   background: #ffffff;
 }
 
+.about-btns{
+  float: center;
+  margin-bottom: 10px;
+}
 .welcome-ul{
   list-style-type: none;
 }
