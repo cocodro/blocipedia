@@ -10,7 +10,8 @@
       <%= f.label :body %><br />
       <%= f.text_area :body, class: 'form-control', placeholder: "Add a synopsis of your wiki" %>
     </div>
-    <% if current_user.admin? || current_user.premium? %>
+    <% if !current_user %>
+    <% elsif current_user.admin? || current_user.premium? %>
       <div class="form-group">
         <%= f.label :private, class: 'checkbox' %>
         <%= f.check_box :private %> Private wiki?

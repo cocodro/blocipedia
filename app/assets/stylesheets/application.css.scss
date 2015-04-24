@@ -4,7 +4,16 @@ $font-family-base: Helvetica, serif;
 @import "bootstrap";
 @import "font-awesome";
 
-
+.edt-sec{
+  margin-bottom: 10px;
+}
+.alert{
+  margin-top: 10px;
+}
+.devise{
+  float:center;
+  margin-left: 20px;
+}
 body{
   background: #a3ffe0;
 }

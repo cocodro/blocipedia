@@ -34,7 +34,7 @@ class SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
-    @section.wiki = @wiki
+    @wiki = @section.wiki
   end
 
   def destroy
@@ -45,7 +45,7 @@ class SectionsController < ApplicationController
 
     if @section.destroy
       flash[:notice] = "The section entitled \"#{title}\" was deleted!"
-      redirect_to request.referer
+      redirect_to @wiki
     else
       flash[:error] = "The section entitled \"#{title}\" was not deleted!"
       redirect_to :back

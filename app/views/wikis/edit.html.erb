@@ -20,10 +20,17 @@
     <% end %>
   <% end %>
   <h1>Edit Sections</h1>
-  <% @sections.each do |section| %>
-    <p class="section-title"><h4><%= markdown_to_html section.title %><%= link_to "Edit", edit_section_path %></h4></p>
-
-    <%# render partial: 'sections/form', locals: {section: section} %>
+  <% if @sections.empty? %>
+    <%= link_to "Add Section", new_wiki_section_path(@wiki, @section), class: 'btn btn-md btn-primary edt-sec'%>
+  <% elsif %>
+    <% @sections.each do |section| %>
+      <p class="section-title">
+        <h4 class="col-md-9">
+          <%= section.title %>
+          <%= link_to "Edit", edit_wiki_section_path(@wiki, section) %>
+        </h4>
+      </p>
+    <% end %>
   <% end %>
 
 </div>

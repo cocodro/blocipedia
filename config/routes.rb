@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:update]
 
-  resources :sections, only: [:edit]
+  #resources :sections, only: [:edit]
 
   resources :wikis do
     resources :sections

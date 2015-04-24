@@ -1,9 +1,9 @@
 class CollaboratorPolicy < ApplicationPolicy
   attr_reader :wiki
 
-  def initialize(user, record, wiki)
+  def initialize(wiki, user, record)
     @wiki = wiki
-    super(user,record)
+    super(user, record)
   end
 
   def create?

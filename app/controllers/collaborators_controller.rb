@@ -9,8 +9,8 @@ class CollaboratorsController < ApplicationController
   def create
     @wiki = Wiki.find(params[:wiki_id])
     @user = User.find_by(email: params[:email])
-    name = @user.name
     @collaborator = Collaborator.new(wiki: @wiki, user: @user)
+    name = @user.name
     authorize @collaborator
 
     if @collaborator.save
